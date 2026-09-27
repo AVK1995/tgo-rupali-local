@@ -43,12 +43,9 @@ export function originOnly(url: string): string {
   }
 }
 
-/** Meta's standard events. Nothing outside this union is sendable. */
+/** Meta's standard events. Nothing outside the two unions is sendable. */
 export type StandardEvent =
   | 'ViewContent'
-  | 'AddToCart'
-  | 'InitiateCheckout'
-  | 'Purchase'
   /* The booking, which is what the funnel exists to produce: without it the ad
      account can optimise towards someone paying but not towards someone who
      took a slot, and those are different people. Schedule must also be added
@@ -57,7 +54,7 @@ export type StandardEvent =
 
 /** Closed for the same reason: a free-form string is how a health term
  *  eventually reaches Meta as an event name. */
-export type CustomEvent = 'QualifiedLead';
+export type CustomEvent = 'atc_event' | 'ic_event' | 'sales' | 'qc_event';
 
 export type SendableEvent = StandardEvent | CustomEvent;
 

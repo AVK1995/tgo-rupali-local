@@ -1,7 +1,6 @@
 import { feeLabel } from '@/lib/site';
 import { CtaLockup } from '@/components/shared/CtaLockup';
 import { ArrowDownIcon } from '@/components/shared/icons';
-import { BrandMark } from './BrandMark';
 import { VslFrame } from './VslFrame';
 
 /**
@@ -12,7 +11,7 @@ import { VslFrame } from './VslFrame';
  * ends, to the button.
  *
  * ORDER IS THE COPY'S AND IS FIXED, top to bottom:
- *   logo → audience-gate pill → three-tier H1 → the "without" line → deck →
+ *   audience-gate pill → three-tier H1 → the "without" line → deck →
  *   pre-video lead → 8 condition chips → watch cue → VSL →
  *   CTA lockup (button, 3 badges, countdown) → credibility table
  *
@@ -50,9 +49,6 @@ const STATS = [
 export function Hero() {
   return (
     <section id="top" className="sdp-hero">
-      {/* Outside .sdp-hero-inner on purpose: see BrandMark.tsx. */}
-      <BrandMark />
-
       <div className="sdp-wrap sdp-hero-inner">
         {/* Audience gate: a bordered pill with a glowing dot. It names who
             this is for before the page claims anything. */}

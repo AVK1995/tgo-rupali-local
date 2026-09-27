@@ -77,7 +77,7 @@ export function trackViewItem() {
  * AddToCart volume and deflates the cost-per-AddToCart the ads are judged on.
  */
 export function trackAddToCart() {
-  capi('AddToCart');
+  capi('atc_event');
   ga4AddToCart(money);
 }
 
@@ -97,9 +97,9 @@ export function trackBeginCheckout() {
  * audience containing both cannot be targeted as one.
  */
 export function trackInitiateCheckout(person: Person) {
-  capi('InitiateCheckout', person);
+  capi('ic_event', person);
   if (person.occupation === 'working_professional') {
-    capi('QualifiedLead', person);
+    capi('qc_event', person);
   }
   ga4AddPaymentInfo({ value: VALUE, currency: 'INR' });
 }

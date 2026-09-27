@@ -77,11 +77,11 @@
   border-radius: 999px; padding: 7px 15px; margin-bottom: 18px;
 }
 .rn-book .bk-mast h1 {
-  font-family: var(--fh); text-transform: uppercase; font-weight: var(--fh-weight);
-  font-size: clamp(32px, 5vw, 52px); line-height: 1.06; letter-spacing: .02em;
+  font-family: var(--fh); font-weight: var(--fh-weight);
+  font-size: clamp(32px, 5vw, 52px); line-height: 1.06; letter-spacing: -.01em;
   color: var(--ink); margin: 0 0 14px; text-wrap: balance;
 }
-.rn-book .bk-mast h1 em { font-style: normal; color: var(--accent-word); }
+.rn-book .bk-mast h1 em { font-style: italic; color: var(--accent-word); }
 .rn-book .bk-deck {
   font-size: 15.5px; line-height: 1.7; color: var(--ink-soft);
   margin: 0 auto; max-width: 540px;
@@ -98,8 +98,8 @@
 }
 .rn-book .bk-card-head { margin-bottom: 16px; }
 .rn-book .bk-card-head h2 {
-  font-family: var(--fh); text-transform: uppercase; font-weight: var(--fh-weight);
-  font-size: 26px; line-height: 1.2; letter-spacing: .02em;
+  font-family: var(--fh); font-weight: var(--fh-weight);
+  font-size: 26px; line-height: 1.2; letter-spacing: -.01em;
   color: var(--ink); margin: 0 0 4px;
 }
 .rn-book .bk-card-head p { font-size: 13.5px; color: var(--ink-soft); margin: 0; }
@@ -201,8 +201,8 @@
 .rn-book .bk-rescue-eyebrow svg { flex: 0 0 auto; }
 
 .rn-book .bk-rescue h2 {
-  font-family: var(--fh); text-transform: uppercase; font-weight: var(--fh-weight);
-  font-size: clamp(24px, 3vw, 32px); line-height: 1.16; letter-spacing: .02em;
+  font-family: var(--fh); font-weight: var(--fh-weight);
+  font-size: clamp(24px, 3vw, 32px); line-height: 1.16; letter-spacing: -.01em;
   color: var(--ink-dark); margin: 16px 0 0; text-wrap: balance;
 }
 .rn-book .bk-rescue > p {
@@ -244,11 +244,11 @@
 
 /* ── 5 · section headings shared below the card ───────────────── */
 .rn-book .bk-h2 {
-  font-family: var(--fh); text-transform: uppercase; font-weight: var(--fh-weight);
-  font-size: clamp(26px, 3.4vw, 38px); line-height: 1.16; letter-spacing: .02em;
+  font-family: var(--fh); font-weight: var(--fh-weight);
+  font-size: clamp(26px, 3.4vw, 38px); line-height: 1.16; letter-spacing: -.01em;
   color: var(--ink); text-align: center; margin: 58px 0 8px; text-wrap: balance;
 }
-.rn-book .bk-h2 em { font-style: normal; color: var(--accent-word); }
+.rn-book .bk-h2 em { font-style: italic; color: var(--accent-word); }
 .rn-book .bk-h2-sub {
   text-align: center; font-size: 14px; color: var(--ink-soft); margin: 0 0 26px;
 }
@@ -257,7 +257,7 @@
 .rn-book .bk-btn {
   display: inline-flex; align-items: center; justify-content: center;
   background: var(--grad-cta); color: var(--cta-ink);
-  font-family: var(--fh); text-transform: uppercase; font-weight: var(--fh-weight);
+  font-family: var(--fb); text-transform: uppercase; font-weight: 800;
   font-size: 17px; letter-spacing: .05em;
   padding: 15px 30px 13px; border-radius: 999px;
   box-shadow: var(--glow-cta), var(--inset-hi);
@@ -285,8 +285,8 @@
   border-radius: var(--r-sm); padding: 3px 8px; margin-bottom: 12px;
 }
 .rn-book .bk-value h3 {
-  font-family: var(--fh); text-transform: uppercase; font-weight: var(--fh-weight);
-  font-size: 21px; line-height: 1.2; letter-spacing: .02em;
+  font-family: var(--fh); font-weight: var(--fh-weight);
+  font-size: 21px; line-height: 1.2; letter-spacing: -.01em;
   color: var(--ink); margin: 0 0 8px;
 }
 .rn-book .bk-value p { font-size: 13.5px; line-height: 1.65; color: var(--ink-soft); margin: 0; }
@@ -300,11 +300,11 @@
   padding: 34px 26px;
 }
 .rn-book .bk-nudge h2 {
-  font-family: var(--fh); text-transform: uppercase; font-weight: var(--fh-weight);
-  font-size: clamp(24px, 3.2vw, 34px); line-height: 1.16; letter-spacing: .02em;
+  font-family: var(--fh); font-weight: var(--fh-weight);
+  font-size: clamp(24px, 3.2vw, 34px); line-height: 1.16; letter-spacing: -.01em;
   color: var(--ink); margin: 0 0 12px; text-wrap: balance;
 }
-.rn-book .bk-nudge h2 em { font-style: normal; color: var(--accent-word); }
+.rn-book .bk-nudge h2 em { font-style: italic; color: var(--accent-word); }
 .rn-book .bk-nudge p {
   font-size: 15px; line-height: 1.7; color: var(--ink-soft);
   max-width: 520px; margin: 0 auto 22px;
@@ -341,11 +341,11 @@
   padding: 40px 26px;
 }
 .rn-book .bk-final h2 {
-  font-family: var(--fh); text-transform: uppercase; font-weight: var(--fh-weight);
-  font-size: clamp(28px, 3.6vw, 40px); line-height: 1.12; letter-spacing: .02em;
+  font-family: var(--fh); font-weight: var(--fh-weight);
+  font-size: clamp(28px, 3.6vw, 40px); line-height: 1.12; letter-spacing: -.01em;
   color: var(--ink-dark); margin: 0 0 10px;
 }
-.rn-book .bk-final h2 em { font-style: normal; color: var(--brand-bright); }
+.rn-book .bk-final h2 em { font-style: italic; color: var(--brand-bright); }
 .rn-book .bk-final p { font-size: 15px; color: var(--ink-dark-soft); margin: 0 0 24px; }
 
 .rn-book .bk-help {

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Manrope, Schibsted_Grotesk } from 'next/font/google';
+import { Fraunces, Manrope } from 'next/font/google';
 import './globals.css';
 /* The shared footer's stylesheet. It loads from the ROOT layout because the
    footer renders on every surface (folded into the landing finale, and as a
@@ -11,28 +11,12 @@ import Analytics from '@/components/shared/Analytics';
 import FunnelTracker from '@/components/shared/FunnelTracker';
 import MetaPixel from '@/components/shared/MetaPixel';
 
-/* DISPLAY = Instrument Sans, BODY = Manrope. Three faces were tried on
-   23 Sep 2026: Bebas Neue is the SDP skin's, so the page read as that funnel;
-   Syne was too wide; Unbounded's curves were too soft for a medical offer;
-   Instrument Sans had the right shapes but its variable axis STOPS AT 700,
-   so its heaviest weight still read as body text at headline size.
-
-   The lesson is that this brand does not want a DISPLAY face, it wants a
-   clean grotesque that goes HEAVY. Schibsted Grotesk runs 400-900, so the
-   headline separates from the body by weight, case and tracking rather than
-   by personality. Titles are set uppercase in CSS, and --fh-weight in
-   globals.css is the one dial for how heavy.
-
-   To change a face, swap it HERE and keep the variable names, so globals.css
-   and landing.css need no edit.
-
-   Both variables go on <html> (skin PART 3 law 2): the tokens that read
-   them are declared on :root, and a var() is resolved on the element that
-   declares it. On <body> every font-family would silently fall back. */
-const display = Schibsted_Grotesk({
-  /* Variable 400-900. No `weight` array: next/font loads the whole axis for a
-     variable face, so --fh-weight can name any value in that range. */
+/* Both variables go on <html>: the tokens that read them are declared on
+   :root, and on <body> every font-family would silently fall back. */
+const display = Fraunces({
   subsets: ['latin'],
+  style: ['normal', 'italic'],
+  axes: ['opsz', 'WONK'],
   variable: '--font-display',
   display: 'swap',
 });

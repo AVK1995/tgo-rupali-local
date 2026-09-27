@@ -92,21 +92,13 @@
   --star: #F2A900;
   --gold: #E09B00;
 
-  /* ---- TYPE: the skin's two voices. Only the faces swap, never the roles.
-     DISPLAY = Schibsted Grotesk, set UPPERCASE (H1, H2, numbers, CTA).
-     BODY    = Manrope (eyebrows, chips, paragraphs, FAQ).
-     Both are geometric sans, which is what the Fit With Rupali wordmark is,
-     so the mark and the headlines finally speak the same language. ---- */
-  --fh: var(--font-display), 'Schibsted Grotesk', 'Helvetica Neue', sans-serif;
+  /* ---- TYPE ----
+     DISPLAY = Fraunces, sentence case (headings, numbers); accent words italic.
+     BODY    = Manrope (eyebrows, chips, paragraphs, FAQ, CTA buttons). ---- */
+  --fh: var(--font-display), 'Fraunces', Georgia, serif;
   --fb: var(--font-manrope), 'Manrope', 'Helvetica Neue', sans-serif;
-  /* THE ONE DIAL FOR HEADLINE WEIGHT. Schibsted Grotesk runs 400-900; 800 is
-     heavy enough to read as a heading without the slab-like closed counters
-     900 gives at large sizes. Change this number, nothing else. */
-  --fh-weight: 800;
-  /* The headline's SUBORDINATE lines (h1 line 2 and 3). One step lighter than
-     the promise above them, so the hierarchy inside a single headline is
-     weight rather than size alone. */
-  --fh-weight-sub: 700;
+  --fh-weight: 600;
+  --fh-weight-sub: 500;
 
   /* ---- RADII ---- */
   --r-sm: 8px; --r: 12px; --r-lg: 18px; --r-xl: 28px;
@@ -144,6 +136,8 @@ html, body {
   line-height: 1.6;
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
+  /* Fraunces italic swaps in curled swash letters at display sizes. */
+  font-variation-settings: "WONK" 0;
 }
 
 a { color: var(--brand-text); text-decoration: none; }

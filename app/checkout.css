@@ -58,14 +58,14 @@
 }
 .rn-pay .pay-pill svg { width: 13px; height: 13px; }
 .rn-pay .pay-mast h1 {
-  font-family: var(--fh); text-transform: uppercase; font-weight: var(--fh-weight);
+  font-family: var(--fh); font-weight: var(--fh-weight);
   font-size: clamp(30px, 5vw, 46px); line-height: 1.08;
-  letter-spacing: .02em;
+  letter-spacing: -.01em;
   color: var(--brand-deep);
   margin: 16px auto 0; max-width: 20ch;
   text-wrap: balance;
 }
-.rn-pay .pay-mast h1 em { font-style: normal; color: var(--accent-word); }
+.rn-pay .pay-mast h1 em { font-style: italic; color: var(--accent-word); }
 .rn-pay .pay-mast .pay-deck {
   margin: 12px auto 0; max-width: 54ch;
   font-size: 15px; line-height: 1.7; color: var(--ink-soft);
@@ -133,8 +133,8 @@
   content: ""; width: 24px; height: 2px; flex: 0 0 24px; background: var(--brand);
 }
 .rn-pay .pay-card h2 {
-  font-family: var(--fh); text-transform: uppercase; font-weight: var(--fh-weight);
-  font-size: 25px; line-height: 1.2; letter-spacing: .02em;
+  font-family: var(--fh); font-weight: var(--fh-weight);
+  font-size: 25px; line-height: 1.2; letter-spacing: -.01em;
   color: var(--brand-deep);
   margin: 12px 0 0;
 }
@@ -298,7 +298,7 @@
   background: var(--grad-cta);
   color: var(--cta-ink);
   border: 0; border-radius: 999px;
-  font-family: var(--fh); text-transform: uppercase; font-weight: var(--fh-weight);
+  font-family: var(--fb); text-transform: uppercase; font-weight: 800;
   font-size: 19px; letter-spacing: .06em; line-height: 1.2;
   box-shadow: var(--glow-cta), var(--inset-hi);
   transition: transform .2s, filter .2s, box-shadow .2s;
@@ -386,8 +386,8 @@
 }
 .rn-pay .sum-title {
   display: block; margin-top: 8px;
-  font-family: var(--fh); text-transform: uppercase; font-weight: var(--fh-weight);
-  font-size: 24px; line-height: 1.2; letter-spacing: .02em; color: var(--brand-deep);
+  font-family: var(--fh); font-weight: var(--fh-weight);
+  font-size: 24px; line-height: 1.2; letter-spacing: -.01em; color: var(--brand-deep);
 }
 .rn-pay .sum-tap {
   display: block; margin-top: 6px;
@@ -548,7 +548,7 @@
     display: flex; align-items: center; justify-content: center; gap: 9px;
     padding: 14px 18px; border: 0; border-radius: 999px;
     background: var(--grad-cta); color: var(--cta-ink); cursor: pointer;
-    font-family: var(--fh); text-transform: uppercase; font-weight: var(--fh-weight);
+    font-family: var(--fb); text-transform: uppercase; font-weight: 800;
     font-size: 17px; letter-spacing: .05em;
     box-shadow: var(--glow-cta);
   }

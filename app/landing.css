@@ -14,7 +14,7 @@
      03  the CTA lockup: button → 3 risk badges → countdown
      04  beat 0a  announcement strip
      05  beat 0b  trust row
-     06  beat 1   hero / VSL   (06a the client mark)
+     06  beat 1   hero / VSL
      07  beat 2   this is for you if
    Pass 2:
      08  beats 3/4  proof A: testimonial tiles + case cards (§4 ledgers)
@@ -59,11 +59,11 @@
 .sdp-root h2,
 .sdp-root h3,
 .sdp-root h4 {
-  font-family: var(--fh); text-transform: uppercase;
+  font-family: var(--fh);
   color: var(--ink);
   font-weight: var(--fh-weight);
   line-height: 1.05;
-  letter-spacing: .01em;
+  letter-spacing: -.01em;
   margin-block: 0 .5em;
 }
 
@@ -124,11 +124,11 @@
 .sdp-root h2.sdp-h2 {
   width: 100%; text-align: center;
   font-size: clamp(28px, 4.4vw, 52px);
-  letter-spacing: .02em; line-height: 1.18;
+  letter-spacing: -.01em; line-height: 1.18;
   margin-bottom: 14px;
   text-wrap: balance;
 }
-.sdp-root h2.sdp-h2 em { font-style: normal; color: var(--accent-word); }
+.sdp-root h2.sdp-h2 em { font-style: italic; color: var(--accent-word); }
 .sdp-dark h2.sdp-h2 em, .sdp-dark-alt h2.sdp-h2 em { color: var(--brand-bright); }
 
 .sdp-root .sdp-sub {
@@ -142,23 +142,25 @@
    (The copy's line break after "Thyroid," is kept as the l2 / l3 split.) */
 .sdp-root .sdp-h1 {
   max-width: 1000px; margin-left: auto; margin-right: auto; margin-bottom: 18px;
-  line-height: 1.04; letter-spacing: .01em;
+  line-height: 1.04; letter-spacing: -.01em;
 }
 .sdp-h1-l1 {
-  display: block; font-family: var(--fh); text-transform: uppercase; font-weight: var(--fh-weight);
+  display: block; font-family: var(--fh); font-weight: var(--fh-weight);
   font-size: clamp(34px, 5.6vw, 70px);
-  color: var(--ink); line-height: 1.0; letter-spacing: .02em;
+  color: var(--ink); line-height: 1.0; letter-spacing: -.015em;
   text-wrap: balance;
 }
 .sdp-h1-l2,
 .sdp-h1-l3 {
-  display: block; font-family: var(--fh); text-transform: uppercase; font-weight: var(--fh-weight-sub);
+  display: block; font-family: var(--fh); font-weight: var(--fh-weight-sub);
   font-size: clamp(20px, 3vw, 36px);
   color: var(--brand-deep); line-height: 1.1;
-  margin-top: 8px; letter-spacing: .02em;
+  margin-top: 8px; letter-spacing: -.01em;
   text-wrap: balance;
 }
 .sdp-h1-l3 { margin-top: 2px; }
+.sdp-hero .sdp-h1-l2,
+.sdp-hero .sdp-h1-l3 { font-weight: var(--fh-weight); }
 
 /* ---- Reveal on scroll: FAIL-OPEN (C7) ----
    Server-rendered VISIBLE. Only `html.sdp-armed` (added by ScrollReveal,
@@ -232,7 +234,7 @@
   background: var(--grad-cta);
   color: var(--cta-ink);
   border-radius: 999px;
-  font-family: var(--fh); text-transform: uppercase; font-weight: var(--fh-weight);
+  font-family: var(--fb); text-transform: uppercase; font-weight: 800;
   font-size: 19px; letter-spacing: .06em; line-height: 1.2;
   text-align: center; text-decoration: none;
   border: 0; cursor: pointer;
@@ -441,36 +443,6 @@
   background: var(--hero-bloom); filter: blur(8px); pointer-events: none;
 }
 .sdp-hero-inner { position: relative; z-index: 1; width: 100%; text-align: center; }
-
-/* ---- 06a · the client mark ----
-   A crop WINDOW onto the supplied PNG (its artwork sits in the middle half
-   of a near-square canvas). Window = the lockup's content box, ~490 x 240
-   of 500 x 466. Percent margins resolve against the WINDOW'S width, so the
-   offsets hold at any export resolution:
-       img width   500 / 490 = 102.04%
-       left offset   6 / 490 =   1.22%
-       top offset  108 / 490 =  22.04%
-   Estimated by eye from the file, not measured: nudge these if the tree's
-   top leaf or the tagline clips. Delete this block if a trimmed export
-   replaces the file.
-   The img, not the wrapper, is positioned (z-index 2) so it clears the
-   stage's pseudo layers while still blending onto them: see BrandMark.tsx
-   for why nothing between the img and the stage may isolate. */
-.sdp-brand {
-  display: flex; justify-content: center;
-  margin: 0 auto 16px;
-}
-.sdp-brand-crop {
-  width: 196px; aspect-ratio: 490 / 240;
-  overflow: hidden;
-}
-.sdp-root .sdp-brand-crop img {
-  position: relative; z-index: 2;
-  display: block;
-  width: 102.04%; max-width: none; height: auto;
-  margin-left: -1.22%; margin-top: -22.04%;
-  mix-blend-mode: multiply;
-}
 
 /* --- the audience gate: a bordered pill with a glowing dot --- */
 .sdp-eyebrow-pill {
@@ -765,7 +737,7 @@
   margin-bottom: 12px;
 }
 .sdp-root .sdp-case-name {
-  font-size: 28px; line-height: 1; letter-spacing: .03em;
+  font-size: 28px; line-height: 1; letter-spacing: -.01em;
   color: var(--ink); margin-block: 0;
 }
 .sdp-case-age { color: var(--muted); }
@@ -974,7 +946,7 @@
   width: 24px; height: 3px; border-radius: 3px; background: var(--leaf);
 }
 .sdp-root .sdp-mech-title {
-  font-size: 26px; line-height: 1.12; letter-spacing: .03em;
+  font-size: 26px; line-height: 1.12; letter-spacing: -.01em;
   color: var(--ink); margin-block: 2px 10px;
 }
 .sdp-root .sdp-mech-text p {
@@ -1012,7 +984,7 @@
   color: var(--brand-deep);
 }
 .sdp-root .sdp-prog-title {
-  font-size: 22px; line-height: 1.15; letter-spacing: .03em;
+  font-size: 22px; line-height: 1.15; letter-spacing: -.01em;
   color: var(--ink); margin-block: 0 8px;
 }
 .sdp-root .sdp-prog-desc { font-size: 13.5px; line-height: 1.75; color: var(--ink-soft); margin-bottom: 0; }
@@ -1145,7 +1117,7 @@
 .sdp-finale-inner { position: relative; z-index: 1; text-align: center; }
 /* "Pregnant Naturally" is the promise, so it carries the pink on both the
    light hero and the dark finale. */
-.sdp-h1-l1 em { font-style: normal; color: var(--accent-word); }
+.sdp-h1-l1 em { font-style: italic; color: var(--accent-word); }
 .sdp-finale .sdp-h1-l1 { color: var(--ink-dark); }
 
 .sdp-finale .sdp-h1-l2,
@@ -1206,7 +1178,7 @@
   width: auto; min-width: 420px; max-width: 620px; min-height: 46px;
   padding: 12px 24px 11px; border-radius: 999px;
   background: var(--grad-cta); color: var(--cta-ink);
-  font-family: var(--fh); text-transform: uppercase; font-size: 16px; letter-spacing: .05em; line-height: 1.2;
+  font-family: var(--fb); font-weight: 800; text-transform: uppercase; font-size: 16px; letter-spacing: .05em; line-height: 1.2;
   box-shadow: var(--glow-cta), var(--inset-hi);
   transition: transform .2s, filter .2s;
 }
@@ -1301,13 +1273,10 @@
   .sdp-trust-avatar { width: 28px; height: 28px; flex: 0 0 28px; margin-left: -5px; }
   .sdp-trust-item { font-size: 12px; }
 
-  .sdp-brand { margin-bottom: 12px; }
-  .sdp-brand-crop { width: 164px; }
-
   /* the hero hierarchy on a phone (Atul on Deepti, 2026-09-09): the
      headline goes UP, the body comes DOWN, so the step between them reads */
-  .sdp-h1-l1 { font-size: 36px; letter-spacing: .01em; line-height: 1; }
-  .sdp-h1-l2, .sdp-h1-l3 { font-size: 19px; line-height: 1.2; }
+  .sdp-h1-l1 { font-size: 44px; letter-spacing: -.015em; line-height: 1.05; }
+  .sdp-h1-l2, .sdp-h1-l3 { font-size: 22px; line-height: 1.2; }
   .sdp-h1-l2 { margin-top: 10px; }
   .sdp-h1-l3 { margin-top: 1px; }
   .sdp-root .sdp-h1 { margin-bottom: 14px; }
@@ -1408,8 +1377,8 @@
 @media (max-width: 380px) {
   .sdp-stuck-trust { gap: 0 7px; padding: 0 10px; }
   .sdp-stuck-trust li { gap: 3px; }
-  .sdp-h1-l1 { font-size: 32px; }
-  .sdp-h1-l2, .sdp-h1-l3 { font-size: 17px; }
+  .sdp-h1-l1 { font-size: 40px; }
+  .sdp-h1-l2, .sdp-h1-l3 { font-size: 20px; }
   .sdp-root h2.sdp-h2 { font-size: 28px; }
   .sdp-root .sdp-cta { font-size: 15px; }
 }

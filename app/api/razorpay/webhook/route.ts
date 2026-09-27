@@ -158,7 +158,7 @@ export async function POST(req: Request) {
   const result = await sendCapiEvent({
     pixelId: CHECKOUT_CONFIG.meta.pixelId,
     accessToken: CHECKOUT_CONFIG.meta.accessToken,
-    eventName: 'Purchase',
+    eventName: 'sales',
     eventId: paymentId,
     eventSourceUrl,
     user: {

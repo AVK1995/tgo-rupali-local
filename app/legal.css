@@ -74,15 +74,15 @@
 }
 
 .rn-policy .hero h1 {
-  font-family: var(--fh); text-transform: uppercase; font-weight: var(--fh-weight);
+  font-family: var(--fh); font-weight: var(--fh-weight);
   font-size: clamp(36px, 6vw, 68px);
-  line-height: 1.02; letter-spacing: .02em;
+  line-height: 1.02; letter-spacing: -.01em;
   color: var(--ink);
   margin: 0 auto;
   max-width: 17ch;
 }
 /* ONE accent word. Raspberry is 6.2:1 on white, so it is safe as type. */
-.rn-policy .hero h1 em { font-style: normal; color: var(--accent-word); }
+.rn-policy .hero h1 em { font-style: italic; color: var(--accent-word); }
 
 .rn-policy .hero-sub {
   max-width: 660px; margin: 22px auto 0;
@@ -217,9 +217,9 @@
 }
 
 .rn-policy .legal-section h2 {
-  font-family: var(--fh); text-transform: uppercase; font-weight: var(--fh-weight);
+  font-family: var(--fh); font-weight: var(--fh-weight);
   font-size: clamp(24px, 3vw, 36px);
-  line-height: 1.14; letter-spacing: .02em;
+  line-height: 1.14; letter-spacing: -.01em;
   color: var(--brand-deep);
   margin: 0 0 14px;
 }
@@ -333,13 +333,13 @@
 }
 .rn-policy .contact-icon svg { width: 26px; height: 26px; stroke-width: 1.6; }
 .rn-policy .contact h2 {
-  font-family: var(--fh); text-transform: uppercase; font-weight: var(--fh-weight);
+  font-family: var(--fh); font-weight: var(--fh-weight);
   font-size: clamp(28px, 4vw, 44px);
-  line-height: 1.12; letter-spacing: .02em;
+  line-height: 1.12; letter-spacing: -.01em;
   color: var(--ink-dark);
   margin: 0 0 14px;
 }
-.rn-policy .contact h2 em { font-style: normal; color: var(--brand-bright); }
+.rn-policy .contact h2 em { font-style: italic; color: var(--brand-bright); }
 .rn-policy .contact p {
   max-width: 560px; margin: 0 auto 10px;
   font-size: 15.5px; line-height: 1.7; color: var(--ink-dark-soft);

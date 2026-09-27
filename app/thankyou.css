@@ -68,8 +68,8 @@
 .rn-ty .ty-h1,
 .rn-ty .ty-h2 {
   width: 100%; text-align: center;
-  font-family: var(--fh); text-transform: uppercase; font-weight: var(--fh-weight);
-  line-height: 1.1; letter-spacing: .02em;
+  font-family: var(--fh); font-weight: var(--fh-weight);
+  line-height: 1.1; letter-spacing: -.01em;
   margin: 0 0 14px;
   text-wrap: balance;
   color: var(--ink);
@@ -77,7 +77,7 @@
 .rn-ty .ty-h1 { font-size: clamp(34px, 5.4vw, 62px); }
 .rn-ty .ty-h2 { font-size: clamp(28px, 4.4vw, 52px); }
 .rn-ty .ty-h1 em,
-.rn-ty .ty-h2 em { font-style: normal; color: var(--accent-word); }
+.rn-ty .ty-h2 em { font-style: italic; color: var(--accent-word); }
 .rn-ty .ty-dark .ty-h1,
 .rn-ty .ty-dark .ty-h2 { color: var(--ink-dark); }
 .rn-ty .ty-dark .ty-h1 em,
@@ -184,8 +184,8 @@
   width: 24px; height: 3px; border-radius: 3px; background: var(--action);
 }
 .rn-ty .ty-ord-grid h3 {
-  font-family: var(--fh); text-transform: uppercase; font-weight: var(--fh-weight);
-  font-size: 23px; line-height: 1.2; letter-spacing: .02em;
+  font-family: var(--fh); font-weight: var(--fh-weight);
+  font-size: 23px; line-height: 1.2; letter-spacing: -.01em;
   color: var(--ink); margin: 0 0 10px;
 }
 .rn-ty .ty-ord-grid p { font-size: 14.5px; line-height: 1.7; color: var(--ink-soft); margin: 0; }
@@ -204,8 +204,8 @@
 .rn-ty .ty-ready li:nth-last-child(-n + 2) { border-bottom: 0; }
 .rn-ty .ty-ready h3 {
   position: relative; padding-left: 20px;
-  font-family: var(--fh); text-transform: uppercase; font-weight: var(--fh-weight);
-  font-size: 22px; line-height: 1.2; letter-spacing: .02em;
+  font-family: var(--fh); font-weight: var(--fh-weight);
+  font-size: 22px; line-height: 1.2; letter-spacing: -.01em;
   color: var(--ink); margin: 0 0 6px;
 }
 .rn-ty .ty-ready h3::before {

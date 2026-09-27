@@ -21,9 +21,9 @@ import {
  */
 const ALLOWED: SendableEvent[] = [
   'ViewContent',
-  'AddToCart',
-  'InitiateCheckout',
-  'QualifiedLead',
+  'atc_event',
+  'ic_event',
+  'qc_event',
   /* Unlike Purchase, a booking is NOT proven server-side: Cal confirms it in
      the browser and there is no Cal webhook here, so this is the only place it
      can be reported from. That is a bounded risk rather than an oversight: a
@@ -65,7 +65,7 @@ export async function POST(req: Request) {
      exists to build, so the route refuses rather than sending a vaguer event.
      ⚠️ Which half qualifies is the house default and has not been confirmed
      with Rupali. Flipping it is this one comparison. */
-  if (eventName === 'QualifiedLead' && occupation !== 'working_professional') {
+  if (eventName === 'qc_event' && occupation !== 'working_professional') {
     return NextResponse.json({ ok: false, reason: 'not-qualified' }, { status: 400 });
   }
 
