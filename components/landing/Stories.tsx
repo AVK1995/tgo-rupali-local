@@ -14,8 +14,8 @@ import { StarIcon } from '@/components/shared/icons';
  *     each strip renders as a small ledger inside the card, with the
  *     OUTCOME cell lit, rather than as a line of prose under it.
  *
- * Vary-adjacent-proof holds three ways: tiles, then case cards here, then
- * the counter-scrolling conversation wall in the next section.
+ * The case cards run as one auto-scrolling row on the conversation wall's
+ * marquee, so the section reads as an ongoing stream of results.
  *
  * Every word is the copy's. "Swati, 30" joins the copy's name and age lines
  * with a comma; no label is added. The copy's "→" renders as a glyph.
@@ -137,9 +137,9 @@ function TestimonialTile({ t, i }: { t: (typeof TESTIMONIALS)[number]; i: number
   );
 }
 
-function CaseCard({ c, i }: { c: Case; i: number }) {
+function CaseCard({ c }: { c: Case }) {
   return (
-    <article className="sdp-case" data-sdp-reveal style={{ '--d': `${0.04 + (i % 3) * 0.08}s` } as React.CSSProperties}>
+    <article className="sdp-case">
       <header className="sdp-case-head">
         <h3 className="sdp-case-name">
           {c.name}
@@ -202,10 +202,19 @@ export function Stories() {
           ))}
         </div>
 
-        <div className="sdp-cases">
-          {CASES.map((c, i) => (
-            <CaseCard c={c} i={i} key={c.name} />
+      </div>
+
+      {/* full-bleed, outside the wrap, on the conversation wall's marquee */}
+      <div className="sdp-cases sdp-wa-row rtl" data-sdp-reveal style={{ '--d': '.08s' } as React.CSSProperties}>
+        <div className="sdp-wa-track">
+          {CASES.map((c) => (
+            <CaseCard c={c} key={c.name} />
           ))}
+          <div className="sdp-wa-dup" aria-hidden>
+            {CASES.map((c) => (
+              <CaseCard c={c} key={`dup-${c.name}`} />
+            ))}
+          </div>
         </div>
       </div>
     </section>

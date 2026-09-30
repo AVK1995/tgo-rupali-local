@@ -59,8 +59,12 @@ export function Hero() {
 
         <h1 className="sdp-h1" data-sdp-reveal style={{ '--d': '.06s' } as React.CSSProperties}>
           <span className="sdp-h1-l1">Get <em>Pregnant Naturally</em></span>
-          <span className="sdp-h1-l2">Even if you have PCOS, Thyroid,</span>
-          <span className="sdp-h1-l3">Low AMH or Unexplained Fertility Issues</span>
+          <span className="sdp-h1-l2">
+            Even if you have <mark className="sdp-h1-mark">PCOS</mark>, <mark className="sdp-h1-mark">Thyroid</mark>,
+          </span>
+          <span className="sdp-h1-l3">
+            <mark className="sdp-h1-mark">Low AMH</mark> or <mark className="sdp-h1-mark">Unexplained Infertility</mark>
+          </span>
         </h1>
 
         {/* The "without" line is the headline's second promise (what the

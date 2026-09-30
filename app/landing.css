@@ -710,13 +710,13 @@
 /* the ratio contract: a real still is pinned to the placeholder's ratio */
 .sdp-root .sdp-tst > img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
 
-/* --- group B: case cards, 3 + 2 centred --- */
-.sdp-cases {
-  display: flex; flex-wrap: wrap; justify-content: center;
-  gap: 20px; max-width: 1140px; margin: 48px auto 0;
-}
+/* --- group B: case cards, an auto-scrolling row on the conversation wall's
+   marquee: same loop, spacing as margin-right for the same reason.
+   Vertical padding keeps the shadow and hover lift inside the clipped row. */
+.sdp-cases { margin-top: 48px; padding: 6px 0 12px; }
+.sdp-cases .sdp-case { flex: 0 0 360px; margin-right: 20px; }
 .sdp-case {
-  flex: 0 1 calc((100% - 40px) / 3); min-width: 0;
+  min-width: 0;
   display: flex; flex-direction: column;
   position: relative; overflow: hidden;
   background: var(--card);
@@ -1119,6 +1119,7 @@
 /* "Pregnant Naturally" is the promise, so it carries the pink on both the
    light hero and the dark finale. */
 .sdp-h1-l1 em { font-style: italic; color: var(--accent-word); }
+.sdp-h1-mark { background: none; color: var(--accent-word); white-space: nowrap; }
 .sdp-finale .sdp-h1-l1 { color: var(--ink-dark); }
 
 .sdp-finale .sdp-h1-l2,
@@ -1219,8 +1220,6 @@
 ================================================================ */
 @media (max-width: 960px) {
   .sdp-cred-row { grid-template-columns: repeat(2, 1fr); gap: 10px; max-width: 520px; }
-  /* case cards: 3-up becomes 2-up; the fifth card centres on its own row */
-  .sdp-case { flex-basis: calc((100% - 20px) / 2); }
   .sdp-prog-grid { grid-template-columns: repeat(2, 1fr); max-width: 780px; }
   .sdp-coach-grid { grid-template-columns: 300px 1fr; gap: 32px; }
 }
@@ -1239,7 +1238,7 @@
   .sdp-guarantee-icon svg { width: 34px; height: 34px; }
   .sdp-tst-grid { max-width: 560px; gap: 16px; }
   .sdp-tst { flex-basis: 100%; }
-  .sdp-cases { margin-top: 36px; gap: 16px; }
+  .sdp-cases { margin-top: 36px; }
   .sdp-hero { padding: 18px 0 40px; }
   .sdp-hero-markers { grid-template-columns: 1fr 1fr; max-width: 380px; gap: 8px; margin: 8px auto 14px; }
   .sdp-marker-chip { width: 100%; font-size: 11px; padding: 7px 10px; letter-spacing: .04em; gap: 6px; }
@@ -1286,8 +1285,7 @@
   .sdp-root .sdp-hero-lead { font-size: 13px; line-height: 1.65; margin-bottom: 12px; }
   .sdp-root .sdp-sub { font-size: 13.5px; line-height: 1.65; margin-bottom: 32px; }
   .sdp-root h2.sdp-h2 { font-size: 32px; line-height: 1.12; }
-  /* a four-line centred rag is harder to read than a flush one */
-  .sdp-eyebrow-pill { font-size: 10px; letter-spacing: .1em; padding: 8px 14px 8px 12px; text-align: left; }
+  .sdp-eyebrow-pill { font-size: 10px; letter-spacing: .1em; padding: 8px 14px 8px 12px; text-align: center; }
   .sdp-marker-chip { font-size: 10.5px; }
 
   /* Always two lines, centred. Each line is nowrap, so the size scales with
@@ -1320,8 +1318,8 @@
 
   .sdp-br-desk { display: none; }
 
-  /* case cards: one column, full width */
-  .sdp-case { flex-basis: 100%; padding: 22px 18px 18px; }
+  .sdp-case { padding: 22px 18px 18px; }
+  .sdp-cases .sdp-case { flex-basis: min(320px, 84vw); margin-right: 14px; }
   .sdp-root .sdp-case-name { font-size: 26px; }
   .sdp-root .sdp-case-story { font-size: 13.5px; }
   .sdp-case-v { font-size: 20px; }
