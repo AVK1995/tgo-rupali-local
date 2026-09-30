@@ -76,7 +76,7 @@ source, offerHours, CTA_LABEL, feeLabel, feePaise).
 
 | Slot | Where | Spec |
 |---|---|---|
-| VSL | `VIMEO_ID` in `VslFrame.tsx` | 16:9; else change `.sdp-vsl` ratio |
+| VSL | `VIMEO_ID` in `VslFrame.tsx` | **FILLED 2026-09-30**: `1231660891` (16:9, 5:01) |
 | 5 reviewer portraits | `AVATARS` in `TrustRow.tsx` | 128px square WebP, face-centred, real consenting clients |
 | Testimonial 1-4 | `TESTIMONIALS` in `Stories.tsx` | Vimeo id or still; 9:16 assumed |
 | 20 conversation screenshots | `ROW_1` / `ROW_2` in `ConversationWall.tsx` | 4:5 assumed, ~460px wide WebP |
