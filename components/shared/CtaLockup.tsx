@@ -1,4 +1,4 @@
-import { site, CTA_LABEL } from '@/lib/site';
+import { site, CTA_LINES } from '@/lib/site';
 import { ArrowRightIcon, FlameIcon, PercentBadgeIcon, StarIcon } from './icons';
 import { OfferTimer } from './OfferTimer';
 
@@ -25,7 +25,9 @@ const BADGES = [
 export function CtaButton() {
   return (
     <a className="sdp-cta" href={site.checkoutUrl} data-cta>
-      <span className="cta-label">{CTA_LABEL}</span>
+      <span className="cta-label">
+        <span className="cta-l">{CTA_LINES[0]}</span> <span className="cta-l">{CTA_LINES[1]}</span>
+      </span>
       <span className="arrow" aria-hidden>
         <ArrowRightIcon />
       </span>

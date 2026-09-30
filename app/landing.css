@@ -689,12 +689,13 @@
 ================================================================ */
 .sdp-proof { padding: 80px 0; position: relative; }
 
-/* --- group A: Testimonial 1-4, 9:16 tiles --- */
+/* --- group A: testimonial videos, 16:9 tiles, 3 + 2 centred --- */
 .sdp-tst-grid {
-  display: grid; grid-template-columns: repeat(4, 1fr);
-  gap: 16px; max-width: 1000px; margin: 0 auto;
+  display: flex; flex-wrap: wrap; justify-content: center;
+  gap: 20px; max-width: 1080px; margin: 0 auto;
 }
 .sdp-tst {
+  flex: 0 1 calc((100% - 40px) / 3);
   position: relative; min-width: 0;
   border-radius: var(--r-lg); overflow: hidden;
   background: var(--card);
@@ -707,7 +708,7 @@
 .sdp-tst-media { position: relative; width: 100%; background: var(--ink); }
 .sdp-tst-media iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 /* the ratio contract: a real still is pinned to the placeholder's ratio */
-.sdp-root .sdp-tst > img { width: 100%; aspect-ratio: 9 / 16; object-fit: cover; }
+.sdp-root .sdp-tst > img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
 
 /* --- group B: case cards, 3 + 2 centred --- */
 .sdp-cases {
@@ -1236,8 +1237,8 @@
   .sdp-guarantee-card { padding: 36px 22px; }
   .sdp-guarantee-icon { width: 70px; height: 70px; border-radius: 18px; }
   .sdp-guarantee-icon svg { width: 34px; height: 34px; }
-  /* 4 tall tiles in one row are ~170px wide on a tablet: 2 x 2 instead */
-  .sdp-tst-grid { grid-template-columns: repeat(2, 1fr); max-width: 520px; gap: 12px; }
+  .sdp-tst-grid { max-width: 560px; gap: 16px; }
+  .sdp-tst { flex-basis: 100%; }
   .sdp-cases { margin-top: 36px; gap: 16px; }
   .sdp-hero { padding: 18px 0 40px; }
   .sdp-hero-markers { grid-template-columns: 1fr 1fr; max-width: 380px; gap: 8px; margin: 8px auto 14px; }
@@ -1289,7 +1290,16 @@
   .sdp-eyebrow-pill { font-size: 10px; letter-spacing: .1em; padding: 8px 14px 8px 12px; text-align: left; }
   .sdp-marker-chip { font-size: 10.5px; }
 
-  .sdp-root .sdp-cta { font-size: 16px; padding: 14px 22px 12px; gap: 10px; letter-spacing: .04em; }
+  /* Always two lines, centred. Each line is nowrap, so the size scales with
+     the viewport instead: the longer line is ~18.4em in Manrope 800, and the
+     button's text box is 100vw minus ~120px (gutters, padding, arrow). */
+  .sdp-root .sdp-cta {
+    font-size: min(16px, calc((100vw - 124px) / 18.8));
+    padding: 14px 22px 12px; gap: 10px; letter-spacing: .04em;
+  }
+  .sdp-cta .cta-l,
+  .sdp-stuck-go .cta-l { display: block; white-space: nowrap; }
+  .sdp-stuck-go .cta-label { text-align: center; min-width: 0; }
   .sdp-cta .arrow { flex: 0 0 22px; width: 22px; height: 22px; }
   .sdp-risk-strip { gap: 8px 14px; }
   .sdp-risk-badge { font-size: 11.5px; }
@@ -1315,6 +1325,11 @@
   .sdp-root .sdp-case-name { font-size: 26px; }
   .sdp-root .sdp-case-story { font-size: 13.5px; }
   .sdp-case-v { font-size: 20px; }
+  /* a long last value ("Natural Conception") cannot fit a half cell, so the
+     bottom row stacks full width instead of leaving the cell beside it alone */
+  .sdp-case-ledger[data-n="4"]:has(.sdp-case-cell:last-child.is-long) .sdp-case-cell:nth-child(n + 3) {
+    grid-column: 1 / -1;
+  }
 
   .sdp-wa-rows { gap: 12px; }
   /* Cap the width on a phone. Fixed height + auto width makes the widest
@@ -1364,7 +1379,7 @@
   .sdp-stuck-inner { gap: 7px; padding: 0 8px; }
   .sdp-root .sdp-stuck-go {
     width: 100%; min-width: 0; max-width: 100%;
-    font-size: 12.5px; padding: 11px 16px 10px; letter-spacing: .03em;
+    font-size: min(13.5px, calc((100vw - 84px) / 18.7)); padding: 11px 16px 10px; letter-spacing: .03em;
   }
   /* Scaled by viewport, as the reference does, so the two claims hold ONE
      line at every phone width instead of wrapping or clipping. */
@@ -1380,7 +1395,6 @@
   .sdp-h1-l1 { font-size: 40px; }
   .sdp-h1-l2, .sdp-h1-l3 { font-size: 20px; }
   .sdp-root h2.sdp-h2 { font-size: 28px; }
-  .sdp-root .sdp-cta { font-size: 15px; }
 }
 
 /* ════════════════════════════════════════════════════════════════

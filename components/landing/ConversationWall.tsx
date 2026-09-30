@@ -33,40 +33,55 @@ import { SectionMasthead } from '@/components/shared/SectionMasthead';
  */
 const WALL_RATIO = '4 / 5';
 
-/* Supplied filenames carry a space, so the paths are percent-encoded here
-   rather than relying on the browser to do it. */
-const ROW_1: string[] = [
-  '/journeys/Conceive%201.jpeg',
-  '/journeys/Conceive%202.jpeg',
-  '/journeys/Conceive%203.jpeg',
-  '/journeys/Conceive%204.jpeg',
-  '/journeys/Conceive%205.png',
-  '/journeys/Conceive%206.jpeg',
-  '/journeys/Conceive%207.jpeg',
-  '/journeys/Conceive%208.jpeg',
-  '/journeys/Conceive%209.jpeg',
-  '/journeys/Conceive%2010.jpeg',
+/* Web copies in /journeys/web: 520px tall (2x the drawn card), WebP. The
+   originals beside them are the source; re-export from those, never re-save
+   these. w/h are the web copy's pixels, so each card holds its width before
+   the file arrives and the moving row never jumps. */
+type Shot = { src: string; w: number; h: number };
+const ROW_1: Shot[] = [
+  { src: '/journeys/web/conceive-1.webp', w: 234, h: 520 },
+  { src: '/journeys/web/conceive-2.webp', w: 390, h: 520 },
+  { src: '/journeys/web/conceive-3.webp', w: 234, h: 520 },
+  { src: '/journeys/web/conceive-4.webp', w: 234, h: 520 },
+  { src: '/journeys/web/conceive-5.webp', w: 907, h: 402 },
+  { src: '/journeys/web/conceive-6.webp', w: 240, h: 520 },
+  { src: '/journeys/web/conceive-7.webp', w: 292, h: 520 },
+  { src: '/journeys/web/conceive-8.webp', w: 390, h: 520 },
+  { src: '/journeys/web/conceive-9.webp', w: 239, h: 520 },
+  { src: '/journeys/web/conceive-10.webp', w: 731, h: 344 },
 ];
-const ROW_2: string[] = [
-  '/journeys/Aditi%20%26%20Mukesh%20Review%20weightloss%20and%20lifestyle%20Improved.png',
-  '/journeys/Fertility%20%28Conceived%29.jpg',
-  '/journeys/Pregnant%20.jpg',
-  '/journeys/Reverse%20PCOS%20and%20skin%2C%20hair%20and%20hormone%20issue.jpg',
-  '/journeys/Sheetal%20Cyst%20and%20endometriosis%20Improved.jpeg',
-  '/journeys/Weightloss%20%282%29.jpg',
-  '/journeys/Weightloss%20and%20Hormone%20balance.jpg',
-  '/journeys/Weightloss%20and%20conceived%20.jpg',
-  '/journeys/Weightloss%20and%20healthy%20lifestyle%20.jpg',
-  '/journeys/WhatsApp%20Image%202026-09-02%20at%205.05.19%20PM.jpeg',
+const ROW_2: Shot[] = [
+  { src: '/journeys/web/aditi-mukesh-review-weightloss-and-lifestyle-improved.webp', w: 872, h: 360 },
+  { src: '/journeys/web/fertility-conceived.webp', w: 234, h: 520 },
+  { src: '/journeys/web/pregnant.webp', w: 234, h: 520 },
+  { src: '/journeys/web/reverse-pcos-and-skin-hair-and-hormone-issue.webp', w: 386, h: 520 },
+  { src: '/journeys/web/sheetal-cyst-and-endometriosis-improved.webp', w: 821, h: 520 },
+  { src: '/journeys/web/weightloss-2.webp', w: 234, h: 520 },
+  { src: '/journeys/web/weightloss-and-hormone-balance.webp', w: 347, h: 520 },
+  { src: '/journeys/web/weightloss-and-conceived.webp', w: 234, h: 520 },
+  { src: '/journeys/web/weightloss-and-healthy-lifestyle.webp', w: 1080, h: 492 },
+  { src: '/journeys/web/whatsapp-image-2026-09-02-at-5-05-19-pm.webp', w: 450, h: 272 },
 ];
 
-function Card({ src, n }: { src: string; n: number }) {
+function Card({ shot, n }: { shot: Shot; n: number }) {
   const label = `Client conversation ${String(n).padStart(2, '0')}`;
   return (
     <div className="sdp-wa-card">
-      {src ? (
+      {shot.src ? (
+        /* Eager at low priority, not lazy: a card in a sliding row is
+           horizontally off screen until it arrives, so lazy only starts each
+           download as it enters, and phones show it blank. */
         // eslint-disable-next-line @next/next/no-img-element
-        <img src={asset(src)} alt={label} loading="lazy" decoding="async" />
+        <img
+          src={asset(shot.src)}
+          alt={label}
+          width={shot.w}
+          height={shot.h}
+          style={{ aspectRatio: `${shot.w} / ${shot.h}` }}
+          loading="eager"
+          fetchPriority="low"
+          decoding="async"
+        />
       ) : (
         <MediaPlaceholder ratio={WALL_RATIO} label={label} note="Screenshot · 4:5 assumed" />
       )}
@@ -74,16 +89,16 @@ function Card({ src, n }: { src: string; n: number }) {
   );
 }
 
-function Row({ items, dir, offset }: { items: string[]; dir: 'ltr' | 'rtl'; offset: number }) {
+function Row({ items, dir, offset }: { items: Shot[]; dir: 'ltr' | 'rtl'; offset: number }) {
   return (
     <div className={`sdp-wa-row ${dir}`}>
       <div className="sdp-wa-track">
-        {items.map((src, i) => (
-          <Card key={`a${i}`} src={src} n={offset + i + 1} />
+        {items.map((shot, i) => (
+          <Card key={`a${i}`} shot={shot} n={offset + i + 1} />
         ))}
         <div className="sdp-wa-dup" aria-hidden>
-          {items.map((src, i) => (
-            <Card key={`b${i}`} src={src} n={offset + i + 1} />
+          {items.map((shot, i) => (
+            <Card key={`b${i}`} shot={shot} n={offset + i + 1} />
           ))}
         </div>
       </div>

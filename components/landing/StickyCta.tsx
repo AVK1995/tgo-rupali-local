@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { site, CTA_LABEL } from '@/lib/site';
+import { site, CTA_LINES } from '@/lib/site';
 import { ArrowRightIcon, CoupleIcon, ShieldCheckIcon } from '@/components/shared/icons';
 
 /**
@@ -55,7 +55,9 @@ export function StickyCta() {
       <span className="sdp-stuck-beam" aria-hidden />
       <div className="sdp-stuck-inner">
         <a className="sdp-stuck-go" href={site.checkoutUrl} tabIndex={on ? 0 : -1} data-cta>
-          <span>{CTA_LABEL}</span>
+          <span className="cta-label">
+            <span className="cta-l">{CTA_LINES[0]}</span> <span className="cta-l">{CTA_LINES[1]}</span>
+          </span>
           <span className="arrow" aria-hidden>
             <ArrowRightIcon />
           </span>

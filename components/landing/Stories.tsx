@@ -7,7 +7,7 @@ import { StarIcon } from '@/components/shared/icons';
  * BEATS 3 / 4 · PROOF A: "SEE THEIR STORIES".
  *
  * Shape: PROOF-SET, in two forms the copy itself separates:
- *   group A · Testimonial 1-4       → media tiles (§6)
+ *   group A · five testimonial videos → media tiles (§6)
  *   group B · five named case files → case cards (§6), each carrying a
  *     FIGURE STRIP that is its own structure: Swati's strip is before→after
  *     markers, the others run history → outcome. That is §4 magnitude, so
@@ -23,22 +23,18 @@ import { StarIcon } from '@/components/shared/icons';
  * Server component. Lazy iframes only, no client JS.
  */
 
-/* ---------- group A: Testimonial 1-4 ----------
-   The copy names four slots and says nothing about what they are. Assumed
-   9:16 video (the house pattern on Deepti and Sandesh). Set a Vimeo id to
-   mount the player, or a /public path to show a still. If the real media is
-   another shape, change TESTIMONIAL_RATIO here AND `.sdp-tst` in
-   landing.css (section 08) in the same pass. */
-const TESTIMONIAL_RATIO = '9 / 16';
-/* Supplied 2026-09-21 (Atul), in this order. The first three ids are
-   consecutive but were NOT given in numeric order, so they are kept in the
-   order they arrived rather than sorted: on a proof rail the sequence is a
-   decision, and re-sorting would silently reorder whose story leads. */
+/* ---------- group A: testimonial videos ----------
+   16:9, matching the Vimeo sources. If the real media is another shape, change
+   TESTIMONIAL_RATIO here AND `.sdp-tst` in landing.css in the same pass. */
+const TESTIMONIAL_RATIO = '16 / 9';
+/* Kept in the order supplied, not sorted by id: the sequence decides whose
+   story leads. */
 const TESTIMONIALS: { label: string; vimeoId?: string; src?: string }[] = [
-  { label: 'Testimonial 1', vimeoId: '1225187798' },
-  { label: 'Testimonial 2', vimeoId: '1225187796' },
-  { label: 'Testimonial 3', vimeoId: '1225187797' },
-  { label: 'Testimonial 4', vimeoId: '1226865611' },
+  { label: 'Aditi', vimeoId: '1229764329' },
+  { label: 'Kavisha', vimeoId: '1229764236' },
+  { label: 'Shivi', vimeoId: '1229764130' },
+  { label: 'Sania', vimeoId: '1229763968' },
+  { label: 'Sneha', vimeoId: '1229764044' },
 ];
 
 /* ---------- group B: the five case files, verbatim ----------
@@ -135,7 +131,7 @@ function TestimonialTile({ t, i }: { t: (typeof TESTIMONIALS)[number]; i: number
         // eslint-disable-next-line @next/next/no-img-element
         <img src={asset(t.src)} alt={t.label} loading="lazy" decoding="async" />
       ) : (
-        <MediaPlaceholder ratio={TESTIMONIAL_RATIO} kind="film" label={t.label} note="Video or photo · 9:16 assumed" />
+        <MediaPlaceholder ratio={TESTIMONIAL_RATIO} kind="film" label={t.label} note="Video or photo · 16:9" />
       )}
     </div>
   );
@@ -162,7 +158,10 @@ function CaseCard({ c, i }: { c: Case; i: number }) {
         {c.cells.map((cell) => (
           /* dt before dd is what a <dl> requires; the CSS column-reverses
              the cell so the VALUE still reads first. */
-          <div className={`sdp-case-cell${cell.outcome ? ' is-outcome' : ''}`} key={cell.k}>
+          <div
+            className={`sdp-case-cell${cell.outcome ? ' is-outcome' : ''}${(cell.v?.length ?? 0) > 12 ? ' is-long' : ''}`}
+            key={cell.k}
+          >
             <dt className="sdp-case-k">{cell.k}</dt>
             <dd className="sdp-case-v">
               {cell.from ? (

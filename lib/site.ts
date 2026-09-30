@@ -52,9 +52,9 @@ export const site = {
   offerHours: 5,
 };
 
-/** The copy's CTA, verbatim. The same string at every lockup on the page. */
-export const CTA_LABEL =
-  'Click Here To Get Your Personalised Fertility & Natural Conception Plan';
+/** The copy's CTA, verbatim. The same string at every lockup on the page.
+ *  Split where mobile breaks it onto its two lines; desktop shows one. */
+export const CTA_LINES = ['Click Here To Get Personalised', 'Natural Conception Plan'] as const;
 
 export const feePaise = site.feeInr * 100;
 export const feeLabel = `₹${site.feeInr.toLocaleString('en-IN')}`;

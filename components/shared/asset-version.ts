@@ -8,7 +8,7 @@
  *
  * THE RULE: bump ASSET_V in the SAME pass as any artwork swap.
  */
-export const ASSET_V = '7';
+export const ASSET_V = '8';
 
 /**
  * @param path a /public path, e.g. '/proof/testimonial-01.webp'
